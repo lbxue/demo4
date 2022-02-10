@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Mybatis测试</title>
+</head>
+
+<body>
+
+
+<table th:border="1" th:width="500" th:align="center">
+    <tr th:each="user : ${usersList}">
+        <td th:text="${user.id}"></td>
+        <td th:text="${user.uname}"></td>
+        <td th:text="${user.pwd}"></td>
+        <td><a th:href="@{/users/modifyUserUi(id=${user.id})}">修改</a></td>
+        <td><a th:href="@{/users/deleteUser(id=${user.id})}">删除</a></td>
+    </tr>
+    <tr>
+        <td colspan="5" th:align="center"><input type="button" value="新增" onclick="window.location.href='/users/addUserUi'"></td>
+    </tr>
+</table>
+</body>
+</html>
